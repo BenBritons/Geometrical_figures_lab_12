@@ -1,0 +1,26 @@
+  [
+      4,
+      "square", 
+    {
+        "ShapeType":"Circle",
+        "Centre" : [4.5, 4.75],
+        "R":22.3
+    },
+    {
+        "ShapeType":"Circle",
+        "Centre" : [0, 0],
+        "R":2.3
+    },
+    {
+        "ShapeType":"Annulus",
+        "Centre" : [4.5, 4.75],
+        "R":22.3,
+        "r" : 20
+    },
+    {
+        "ShapeType":"Tor",
+        "Centre" : [4.5, 4.75, 4.6],
+        "R":22.3,
+        "r" : 20
+    }
+    ]
