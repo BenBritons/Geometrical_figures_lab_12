@@ -1,0 +1,6 @@
+4
+square
+Circle 4.5 4.75 22.3
+Circle 0 0 2.3
+Annulus 4.5 4.75 22.3 20
+Tor 4.5 4.75 4.6 22.3 20

@@ -11,8 +11,8 @@
 
 class AbstractReaderWriter {
 public:
-    virtual void FileWrite(std::string &path, std::list<Shape&> & colection, std::string& sorted_value) = 0;
-    virtual void FileRead(std::string &path, std::list<Shape&> & colection, std::string& sorted_value) = 0;
+    virtual void FileWrite(std::string &path, std::list<Shape*>& colection) = 0;
+    virtual void FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value) = 0;
 };
 
 

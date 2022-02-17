@@ -11,6 +11,7 @@
 void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value) {
     std::ifstream fin(path, std::ifstream::binary);
     std::string tmp_shape;
+    std::string tmp_string;
     std::string tmp_current_shape;
     nlohmann::json j{};
 
@@ -20,7 +21,10 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
     double R;
     double r;
 
-    std::getline(fin, tmp_shape);
+    //std::getline(fin, tmp_shape);
+    while(fin >> tmp_string){
+        tmp_shape += tmp_string;
+    }
 
 
     if(!(tmp_shape.empty())) {
@@ -30,22 +34,22 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
         for(int i = 2; i < size + 2; ++i) {
             tmp_current_shape = j[i]["ShapeType"];
             if (tmp_current_shape == "Circle") {
-                    x = j[i]["Center"][0];
-                    y = j[i]["Center"][1];
+                    x = j[i]["Centre"][0];
+                    y = j[i]["Centre"][1];
                     R = j[i]["R"];
                     collection.push_back( new Circle(Point(x, y), R) );
             }else
             if (tmp_current_shape == "Annulus") {
-                x = j[i]["Center"][0];
-                y = j[i]["Center"][1];
+                x = j[i]["Centre"][0];
+                y = j[i]["Centre"][1];
                 R = j[i]["R"];
                 r = j[i]["r"];
                 collection.push_back( new Annulus(Point(x, y), R, r) );
             }else
             if (tmp_current_shape == "Tor") {
-                x = j[i]["Center"][0];
-                y = j[i]["Center"][1];
-                z = j[i]["Center"][2];
+                x = j[i]["Centre"][0];
+                y = j[i]["Centre"][1];
+                z = j[i]["Centre"][2];
                 R = j[i]["R"];
                 r = j[i]["r"];
                 collection.push_back( new Tor(Point(x, y, z), R, r) );
@@ -64,6 +68,7 @@ void ReaderWriterJson::FileWrite(std::string &path, std::list<Shape*>& colection
         j[i]["ShapeType"] = typeid(*tmp).name();
         j[i]["parameters"] = tmp->ParameterToString();
         j[i]["values"] = tmp->ValuesToString();
+        i++;
     }
     fout << j;
 }

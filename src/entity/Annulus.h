@@ -25,10 +25,10 @@ public:
     double perimeter() override;
     virtual std::string ParameterToString() override;
     virtual std::string ValuesToString() override;
-    friend std::ostream& operator<<(std::ostream& out, const Annulus &tmp){
-        out << tmp.get_id() << " Annulus x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY()
-            <<" Radius: " << tmp.radius_ << " Radius2: " << tmp.radius2_
-            << " Square: " << tmp.square_ << " Perimeter: " << tmp.perimeter_;
+    virtual std::ostream& doprint(std::ostream& out, Shape &tmp) override{
+        out << tmp.get_id() << " Annulus x:" << centre_.GetX() << " y: " << centre_.GetY()
+            <<" Radius: " << radius_ << " Radius2: " << radius2_
+            << " Square: " << square_ << " Perimeter: " << perimeter_;
         return out;
     }
 };

@@ -8,7 +8,7 @@
 
 
 
-void ReaderWriterTxt::FileRead(std::string &path, std::list<Shape *> &collection, std::string &sorted_value) {
+ void ReaderWriterTxt::FileRead(std::string &path, std::list<Shape *> &collection, std::string &sorted_value) {
     std::ifstream fin(path);
     std::string tmp_shape;
     std::string tmp_string;

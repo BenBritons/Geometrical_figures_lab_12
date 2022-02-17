@@ -26,13 +26,16 @@ public:
     };
     double square() override ;
     double perimeter() override ;
+    double valume() override {
+        return 0;
+    };
 
     std::string ParameterToString()override;
     std::string ValuesToString() override;
-    friend std::ostream& operator<<(std::ostream& out, const Circle &tmp){
-        out << tmp.get_id() << " Circle x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY()
-            <<" Radius: " << tmp.radius_
-            << " Square: " << tmp.square_ << " Perimeter: " << tmp.perimeter_;
+    virtual std::ostream& doprint(std::ostream& out, Shape &tmp) override{
+        out << get_id() << " Circle x:" << centre_.GetX() << " y: " << centre_.GetY()
+            <<" Radius: " << radius_
+            << " Square: " << square_ << " Perimeter: " << perimeter_;
         return out;
     }
 };

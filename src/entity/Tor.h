@@ -16,14 +16,14 @@ public:
     volume_ = 2*M_PI*M_PI*radius2_*radius_;
     square_ = 4*M_PI*M_PI*radius_*radius2_;
 }
-    double volume() override;
+    double valume() override;
     double square() override;
     virtual std::string ParameterToString() override;
     virtual std::string ValuesToString() override;
-    friend std::ostream& operator<<(std::ostream& out, const Tor &tmp){
-        out << tmp.get_id() << " Tor x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY() << " z: " << tmp.centre_.GetZ()
-            <<" Radius: " << tmp.radius_ << " Radius2: " << tmp.radius2_
-            << " Square: " << tmp.square_ << " Volume: " << tmp.volume_;
+    virtual std::ostream& doprint(std::ostream& out, Shape &tmp) override{
+        out << tmp.get_id() << " Tor x:" << centre_.GetX() << " y: " << centre_.GetY() << " z: " << centre_.GetZ()
+            <<" Radius: " << radius_ << " Radius2: " << radius2_
+            << " Square: " << square_ << " Volume: " << volume_;
         return out;
     }
 };

@@ -12,22 +12,26 @@ class Shape {
 private:
     static int ID;
     int id;
+    virtual std::ostream& doprint(std::ostream& out, Shape &shape) = 0;
+
 public:
     virtual std::string ParameterToString() = 0;
     virtual std::string ValuesToString() = 0;
+    virtual double perimeter() = 0;
+    virtual double valume() = 0;
     Shape(){
-        id = get_id();
+        id = get_ID();
     }
     virtual double square() = 0;
-    static int get_ID(){
-        return ++ID;
+     int get_ID(){
+        return ++id;
     }
     int get_id() const{
         return id;
     }
-    friend std::ostream& operator<< (std::ostream &out, const Shape &shape){
-        out << "!!Abstract class!!";
-        return out;
+
+    friend  std::ostream& operator<< (std::ostream &out, Shape& shape){
+        return shape.doprint(out, shape);
     }
 };
 /*std::ostream& operator<< (std::ostream &out, const Shape &shape){

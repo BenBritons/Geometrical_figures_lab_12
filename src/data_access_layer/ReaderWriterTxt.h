@@ -8,8 +8,12 @@
 
 
 class ReaderWriterTxt: public AbstractReaderWriter{
-    virtual void FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value);
-    virtual void FileWrite(std::string &path, std::list<Shape*>& colection);
+public:
+
+    ReaderWriterTxt() = default;
+
+    virtual void FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value) override;
+    virtual void FileWrite(std::string &path, std::list<Shape*>& colection) override;
 };
 
 

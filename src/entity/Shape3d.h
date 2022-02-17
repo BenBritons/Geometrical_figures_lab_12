@@ -9,7 +9,7 @@
 
 class Shape3d: virtual public Shape{
 public:
-    virtual double volume() = 0;
+    
 
 
 };
