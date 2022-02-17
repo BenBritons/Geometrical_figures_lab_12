@@ -4,6 +4,7 @@
 
 #ifndef LAB_12_POINT_H
 #define LAB_12_POINT_H
+#include <string>
 
 
 class Point {
@@ -18,6 +19,7 @@ public:
     double GetX();
     double GetY();
     double GetZ();
+
 
     void setX(double x);
 

@@ -23,6 +23,8 @@ public:
     }
     double square() override;
     double perimeter() override;
+    virtual std::string ParameterToString() override;
+    virtual std::string ValuesToString() override;
 };
 
 

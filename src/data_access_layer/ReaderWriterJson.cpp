@@ -4,6 +4,7 @@
 
 #include "ReaderWriterJson.h"
 #include "../entity/Tor.h"
+#include "../entity/Circle.h"
 #include <fstream>
 #include <memory>
 
@@ -63,11 +64,9 @@ void ReaderWriterJson::FileWrite(std::string &path, std::list<Shape*>& colection
         for (auto tmp: colection) {
             j[i]["Identificator"] = tmp->get_id();
             j[i]["ShapeType"] = typeid(*tmp).name();
-            if(dynamic_cast<Circle*>(tmp) != nullptr){
-                j[i]["x"] =
-            }
-
-
+            j[i]["parameters"] = tmp->ParameterToString();
+            j[i]["values"] = tmp->ValuesToString();
         }
     }
+    fout << j;
 }

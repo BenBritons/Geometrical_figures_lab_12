@@ -27,6 +27,8 @@ public:
     virtual double square() override ;
     virtual double perimeter() override ;
 
+    virtual std::string ParameterToString()override;
+    virtual std::string ValuesToString() override;
 };
 
 

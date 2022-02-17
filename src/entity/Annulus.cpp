@@ -13,3 +13,12 @@ double Annulus::perimeter() {
 
     return perimeter_;
 }
+
+std::string Annulus::ValuesToString() {
+    return (Circle::ValuesToString() + " radius 2: " + std::to_string(radius2_));
+}
+
+std::string Annulus::ParameterToString() {
+    std::string a = "Square: " + std::to_string(square_) + " perimeter: " + std::to_string(perimeter_);
+    return a;
+}

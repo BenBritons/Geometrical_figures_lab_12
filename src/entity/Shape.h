@@ -4,6 +4,7 @@
 
 #ifndef LAB_12_SHAPE_H
 #define LAB_12_SHAPE_H
+#include <string>
 
 
 class Shape {
@@ -11,6 +12,8 @@ private:
     static int ID;
     int id;
 public:
+    virtual std::string ParameterToString() = 0;
+    virtual std::string ValuesToString() = 0;
     Shape(){
         id = get_id();
     }
