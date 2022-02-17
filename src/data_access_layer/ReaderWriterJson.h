@@ -10,7 +10,7 @@
 class ReaderWriterJson: public AbstractReaderWriter{
 public:
     virtual void FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value);
-    virtual void FileWrite(std::string &path, std::list<Shape*>& colection, std::string& sorted_value);
+    virtual void FileWrite(std::string &path, std::list<Shape*>& colection);
 };
 
 

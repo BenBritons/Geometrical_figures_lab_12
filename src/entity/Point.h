@@ -16,9 +16,9 @@ public:
     Point(double xvalue = 0, double yvalue = 0, double zvalue = 0);
     Point(const Point& point);
     void Print(); //TODO добавить поток для вывода <<
-    double GetX();
-    double GetY();
-    double GetZ();
+    double GetX() const;
+    double GetY() const;
+    double GetZ() const;
 
 
     void setX(double x);

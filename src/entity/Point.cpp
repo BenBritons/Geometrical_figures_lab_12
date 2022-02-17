@@ -19,13 +19,13 @@ void Point::Print() {
     cout << "(" << x_ << ";" << y_ << ")" << endl;
 }
 
-double Point::GetX() {
+double Point::GetX() const {
     return x_;
 }
-double Point::GetY() {
+double Point::GetY() const{
     return y_;
 }
-double Point::GetZ() {
+double Point::GetZ() const{
     return z_;
 }
 

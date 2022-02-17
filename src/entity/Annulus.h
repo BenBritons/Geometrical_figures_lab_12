@@ -25,7 +25,20 @@ public:
     double perimeter() override;
     virtual std::string ParameterToString() override;
     virtual std::string ValuesToString() override;
+    friend std::ostream& operator<<(std::ostream& out, const Annulus &tmp){
+        out << tmp.get_id() << " Annulus x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY()
+            <<" Radius: " << tmp.radius_ << " Radius2: " << tmp.radius2_
+            << " Square: " << tmp.square_ << " Perimeter: " << tmp.perimeter_;
+        return out;
+    }
 };
+
+/*std::ostream& operator<<(std::ostream& out, const Annulus &tmp){
+    out << tmp.get_id() << " Annulus x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY()
+        <<" Radius: " << tmp.radius_ << " Radius2: " << tmp.radius2_
+        << " Square: " << tmp.square_ << " Perimeter: " << tmp.perimeter_;
+    return out;
+}*/
 
 
 #endif //LAB_12_ANNULUS_H

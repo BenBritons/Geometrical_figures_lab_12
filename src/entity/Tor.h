@@ -20,8 +20,19 @@ public:
     double square() override;
     virtual std::string ParameterToString() override;
     virtual std::string ValuesToString() override;
-
+    friend std::ostream& operator<<(std::ostream& out, const Tor &tmp){
+        out << tmp.get_id() << " Tor x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY() << " z: " << tmp.centre_.GetZ()
+            <<" Radius: " << tmp.radius_ << " Radius2: " << tmp.radius2_
+            << " Square: " << tmp.square_ << " Volume: " << tmp.volume_;
+        return out;
+    }
 };
 
+/*std::ostream& operator<<(std::ostream& out, const Tor &tmp){
+    out << tmp.get_id() << " Tor x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY() << " z: " << tmp.centre_.GetZ()
+        <<" Radius: " << tmp.radius_ << " Radius2: " << tmp.radius2_
+        << " Square: " << tmp.square_ << " Volume: " << tmp.volume_;
+    return out;
+}*/
 
 #endif //LAB_12_TOR_H

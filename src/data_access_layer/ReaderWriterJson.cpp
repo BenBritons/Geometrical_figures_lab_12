@@ -4,9 +4,8 @@
 
 #include "ReaderWriterJson.h"
 #include "../entity/Tor.h"
-#include "../entity/Circle.h"
 #include <fstream>
-#include <memory>
+
 
 
 void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value) {
@@ -35,14 +34,14 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
                     y = j[i]["Center"][1];
                     R = j[i]["R"];
                     collection.push_back( new Circle(Point(x, y), R) );
-            }
+            }else
             if (tmp_current_shape == "Annulus") {
                 x = j[i]["Center"][0];
                 y = j[i]["Center"][1];
                 R = j[i]["R"];
                 r = j[i]["r"];
                 collection.push_back( new Annulus(Point(x, y), R, r) );
-            }
+            }else
             if (tmp_current_shape == "Tor") {
                 x = j[i]["Center"][0];
                 y = j[i]["Center"][1];
@@ -55,18 +54,16 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
     }
 }
 
-void ReaderWriterJson::FileWrite(std::string &path, std::list<Shape*>& colection, std::string &sorted_value) {
+void ReaderWriterJson::FileWrite(std::string &path, std::list<Shape*>& colection) {
     std::ofstream fout(path, std::ifstream::binary);
     nlohmann::json j{};
     int i = 1;
     j[0] = colection.size();
-    if(sorted_value == "square") {
-        for (auto tmp: colection) {
-            j[i]["Identificator"] = tmp->get_id();
-            j[i]["ShapeType"] = typeid(*tmp).name();
-            j[i]["parameters"] = tmp->ParameterToString();
-            j[i]["values"] = tmp->ValuesToString();
-        }
+    for (auto tmp: colection) {
+        j[i]["Identificator"] = tmp->get_id();
+        j[i]["ShapeType"] = typeid(*tmp).name();
+        j[i]["parameters"] = tmp->ParameterToString();
+        j[i]["values"] = tmp->ValuesToString();
     }
     fout << j;
 }

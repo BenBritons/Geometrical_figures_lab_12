@@ -5,6 +5,7 @@
 #ifndef LAB_12_SHAPE_H
 #define LAB_12_SHAPE_H
 #include <string>
+#include <iostream>
 
 
 class Shape {
@@ -24,10 +25,15 @@ public:
     int get_id() const{
         return id;
     }
-
-
-
+    friend std::ostream& operator<< (std::ostream &out, const Shape &shape){
+        out << "!!Abstract class!!";
+        return out;
+    }
 };
+/*std::ostream& operator<< (std::ostream &out, const Shape &shape){
+    out << "!!Abstract class!!";
+    return out;
+}*/
 
 
 #endif //LAB_12_SHAPE_H

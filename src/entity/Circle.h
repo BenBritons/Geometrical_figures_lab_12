@@ -13,8 +13,8 @@ private:
     double square_;
     double perimeter_;
 protected:
-    Point centre_;
     double radius_;
+    Point centre_;
 public:
     Circle():Shape(), centre_(0, 0), radius_(0){
         square_ = radius_*radius_*M_PI;
@@ -24,12 +24,24 @@ public:
         square_ = radius_*radius_*M_PI;
         perimeter_ = 2*radius_*M_PI;
     };
-    virtual double square() override ;
-    virtual double perimeter() override ;
+    double square() override ;
+    double perimeter() override ;
 
-    virtual std::string ParameterToString()override;
-    virtual std::string ValuesToString() override;
+    std::string ParameterToString()override;
+    std::string ValuesToString() override;
+    friend std::ostream& operator<<(std::ostream& out, const Circle &tmp){
+        out << tmp.get_id() << " Circle x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY()
+            <<" Radius: " << tmp.radius_
+            << " Square: " << tmp.square_ << " Perimeter: " << tmp.perimeter_;
+        return out;
+    }
 };
 
+/*std::ostream& operator<<(std::ostream& out, const Circle &tmp){
+    out << tmp.get_id() << " Circle x:" << tmp.centre_.GetX() << " y: " << tmp.centre_.GetY()
+    <<" Radius: " << tmp.radius_
+    << " Square: " << tmp.square_ << " Perimeter: " << tmp.perimeter_;
+    return out;
+}*/
 
 #endif //LAB_12_CIRCLE_H
