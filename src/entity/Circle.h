@@ -11,7 +11,7 @@
 class Circle:public Shape2d {
 private:
     double square_;
-    double perimeter_;
+    double perimeter_;//TODO get rid of this
 protected:
     double radius_;
     Point centre_;
@@ -26,9 +26,6 @@ public:
     };
     double square() override ;
     double perimeter() override ;
-    double valume() override {
-        return 0;
-    };
 
     std::string ParameterToString()override;
     std::string ValuesToString() override;

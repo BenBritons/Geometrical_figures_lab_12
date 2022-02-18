@@ -1,5 +1,4 @@
-4
-1793665 Tor x:4.5 y: 4.75 z: 4.6 Radius: 22.3 Radius2: 20 Square: 17607.4 Volume: 8803.69
+3
+577416657 Annulus x:4.5 y: 4.75 Radius: 22.3 Radius2: 20 Square: 305.646 Perimeter: 265.779
 0 Circle x:4.5 y: 4.75 Radius: 22.3 Square: 1562.28 Perimeter: 140.115
-1 Annulus x:4.5 y: 4.75 Radius: 22.3 Radius2: 20 Square: 305.646 Perimeter: 265.779
 0 Circle x:0 y: 0 Radius: 2.3 Square: 16.619 Perimeter: 14.4513

@@ -12,13 +12,15 @@ class Shape {
 private:
     static int ID;
     int id;
-    virtual std::ostream& doprint(std::ostream& out, Shape &shape) = 0;
+    virtual std::ostream& doprint(std::ostream& out, Shape &shape){
+        out << "!!Abstract class!!";
+        return out;
+    };
 
 public:
     virtual std::string ParameterToString() = 0;
     virtual std::string ValuesToString() = 0;
-    virtual double perimeter() = 0;
-    virtual double valume() = 0;
+
     Shape(){
         id = get_ID();
     }

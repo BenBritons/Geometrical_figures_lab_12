@@ -4,7 +4,7 @@
 
 #include "Tor.h"
 
-double Tor::valume() {
+double Tor::volume() {
     return volume_;
 }
 
@@ -13,7 +13,7 @@ double Tor::square() {
 }
 
 std::string Tor::ValuesToString() {
-    std::string a = "Square: " + std::to_string(square_) + " valume: " + std::to_string(volume_);
+    std::string a = "Square: " + std::to_string(square_) + " volume: " + std::to_string(volume_);
     return a;
 }
 

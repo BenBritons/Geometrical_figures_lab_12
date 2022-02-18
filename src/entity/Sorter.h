@@ -7,6 +7,7 @@
 #include "Tor.h"
 #include <list>
 #include <string>
+#include "spdlog/spdlog.h"
 
 class Sorter {
 public:
@@ -16,28 +17,37 @@ public:
 
         if (sorted_value == "square") {
             for (auto tmp: colection) {
-                if (dynamic_cast<Circle *>(tmp) != nullptr ||
-                    dynamic_cast<Annulus *>(tmp) != nullptr ||
-                    dynamic_cast<Tor *>(tmp) != nullptr) {
                     list_for_sort.push_back(tmp);
-                }
             }
             list_for_sort.sort([](Shape* lhs, Shape* rhs)->bool {return lhs->square() > rhs->square();});
         } else if (sorted_value == "perimeter") {
+            std::list<Shape2d *> list_for_sort_2d;
+
             for (auto tmp: colection) {
-                if (dynamic_cast<Circle *>(tmp) != nullptr ||
-                    dynamic_cast<Annulus *>(tmp) != nullptr) {
-                    list_for_sort.push_back(tmp);
+                if (dynamic_cast<Shape2d*>(tmp) != nullptr && dynamic_cast<Shape3d*>(tmp) == nullptr) {
+                    list_for_sort_2d.push_back(dynamic_cast<Shape2d*>(tmp));
                 }
             }
-            list_for_sort.sort([](Shape* lhs, Shape* rhs)->bool {return lhs->perimeter() > rhs->perimeter();});
-        } else if (sorted_value == "valume") {
+            list_for_sort_2d.sort([](Shape2d* lhs, Shape2d* rhs)->bool {return lhs->perimeter() > rhs->perimeter();});
+            for (auto tmp: list_for_sort_2d) {
+                list_for_sort.push_back(tmp);
+                spdlog::info("Support for floats {:03.2f}", 1.23456);
+                spdlog::info("Positional args are {1} {0}..", "too", "supported");
+                spdlog::info("Collection item  =  {0}", tmp->ParameterToString());
+            //    std::cout << *tmp << "\n";
+            }
+        } else if (sorted_value == "volume") {
+            std::list<Shape3d *> list_for_sort_3d;
             for (auto tmp: colection) {
-                if (dynamic_cast<Tor *>(tmp) != nullptr) {
-                    list_for_sort.push_back(tmp);
+                if (dynamic_cast<Shape3d*>(tmp) != nullptr) {
+                    list_for_sort_3d.push_back(dynamic_cast<Shape3d*>(tmp));
                 }
             }
-            list_for_sort.sort([](Shape* lhs, Shape* rhs)->bool {return lhs->valume() > rhs->valume();});
+            list_for_sort_3d.sort([](Shape3d* lhs, Shape3d* rhs)->bool {return lhs->volume() > rhs->volume();});
+            for (auto tmp: list_for_sort_3d) {
+                list_for_sort.push_back(tmp);
+                std::cout << *tmp << "\n";
+            }
         }
 
         return list_for_sort;

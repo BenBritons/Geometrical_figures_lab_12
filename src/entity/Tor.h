@@ -16,7 +16,7 @@ public:
     volume_ = 2*M_PI*M_PI*radius2_*radius_;
     square_ = 4*M_PI*M_PI*radius_*radius2_;
 }
-    double valume() override;
+    double volume() override;
     double square() override;
     virtual std::string ParameterToString() override;
     virtual std::string ValuesToString() override;
