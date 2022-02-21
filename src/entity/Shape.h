@@ -6,6 +6,9 @@
 #define LAB_12_SHAPE_H
 #include <string>
 #include <iostream>
+#define _USE_MATH_DEFINES // for C++
+#include <cmath>
+#include <corecrt_math_defines.h>
 
 
 class Shape {

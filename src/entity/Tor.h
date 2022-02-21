@@ -7,6 +7,7 @@
 #include "Shape3d.h"
 #include "Annulus.h"
 
+
 class Tor: public Annulus, public Shape3d{
 private:
     double volume_;
