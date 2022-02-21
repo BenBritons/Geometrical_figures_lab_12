@@ -33,8 +33,8 @@ int main() {
     std::string sort;
     Sorter srt;
     ReaderWriterTxt b;
-    std::string inpath = "../tests/test.txt";
-    std::string oupath = "../tests/testsout.txt";
+    std::string inpath = "D:\\git\\Geometrical_figures_lab_12\\tests\\test.txt";
+    std::string oupath = "D:\\git\\Geometrical_figures_lab_12\\tests\\testsout.txt";
     std::string sorted_value;//Reading from file
     b.FileRead(inpath, a, sorted_value);
     a = srt(a,sorted_value);
