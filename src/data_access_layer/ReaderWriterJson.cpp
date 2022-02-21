@@ -5,7 +5,7 @@
 #include "ReaderWriterJson.h"
 #include "../entity/Tor.h"
 #include <fstream>
-
+#include "../entity/Cylinder.h"
 
 
 void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value) {
@@ -20,6 +20,7 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
     double z;
     double R;
     double r;
+    double h;
 
     //std::getline(fin, tmp_shape);
     while(fin >> tmp_string){
@@ -53,6 +54,14 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
                 R = j[i]["R"];
                 r = j[i]["r"];
                 collection.push_back( new Tor(Point(x, y, z), R, r) );
+            }
+            else if (tmp_current_shape == "Cylinder") {
+                x = j[i]["Centre"][0];
+                y = j[i]["Centre"][1];
+                z = j[i]["Centre"][2];
+                r = j[i]["r"];
+                h = j[i]["h"];
+                collection.push_back(new Cylinder(x,y,z,r,h));
             }
         }
     }

@@ -5,6 +5,9 @@
 #include "ReaderWriterTxt.h"
 #include <fstream>
 #include "../entity/Tor.h"
+#include "../entity/Cylinder.h"
+#include "../entity/Cylinder.cpp"
+
 
 
 
@@ -20,6 +23,9 @@
     double z;
     double R;
     double r;
+    double h;
+
+
     fin >> size;
     fin >> sorted_value;
     for(int i = 0; i < size; ++i){
@@ -43,6 +49,15 @@
             fin >> R;
             fin >> r;
             collection.push_back( new Tor(Point(x, y, z), R, r) );
+        }
+        else if (tmp_current_shape == "Cylinder") {
+            fin >> x;
+            fin >> y;
+            fin >> z;
+            fin >> r;
+            fin >> h;
+
+            collection.push_back(new Cylinder(x,y,z, r, h));
         }
     }
 }
