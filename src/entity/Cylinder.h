@@ -24,7 +24,7 @@ public:
     virtual std::string ValuesToString() override;
 
     virtual std::ostream& doprint(std::ostream& out, Shape& tmp) override {
-        out << tmp.get_id() << " Tor x:" << centre_.GetX() << " y: " << centre_.GetY() << " z: " << centre_.GetZ()
+        out << tmp.get_id() << " Cylinder x: " << centre_.GetX() << " y: " << centre_.GetY() << " z: " << centre_.GetZ()
             << " Radius: " << radius_ << " Height: " << height_
             << " Square: " << square_ << " Volume: " << volume_;
         return out;
