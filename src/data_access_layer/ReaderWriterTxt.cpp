@@ -6,6 +6,7 @@
 #include <fstream>
 #include "../entity/Tor.h"
 #include "../entity/Cylinder.h"
+#include "../entity/Cone.h"
 #include "../entity/Cylinder.cpp"
 
 
@@ -58,6 +59,13 @@
             fin >> h;
 
             collection.push_back(new Cylinder(x,y,z, r, h));
+        } else if(tmp_current_shape == "Cone"){
+          fin >> x;
+          fin >> y;
+          fin >> z;
+          fin >> r;
+          fin >> h;
+          collection.push_back( new Cone(Point(x, y, z), r, h) );
         }
     }
 }
