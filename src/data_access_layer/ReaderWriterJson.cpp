@@ -6,6 +6,7 @@
 #include "../entity/Tor.h"
 #include <fstream>
 #include "../entity/Cylinder.h"
+#include "../entity/Cone.h"
 
 
 void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collection, std::string& sorted_value) {
@@ -62,7 +63,14 @@ void ReaderWriterJson::FileRead(std::string &path, std::list<Shape*> & collectio
                 r = j[i]["r"];
                 h = j[i]["h"];
                 collection.push_back(new Cylinder(x,y,z,r,h));
-            }
+            }else if (tmp_current_shape == "Cone") {
+                x = j[i]["Centre"][0];
+                y = j[i]["Centre"][1];
+                z = j[i]["Centre"][2];
+                r = j[i]["r"];
+                h = j[i]["h"];
+                collection.push_back( new Cone(Point(x, y, z), r, h) );
+              }
         }
     }
 }
