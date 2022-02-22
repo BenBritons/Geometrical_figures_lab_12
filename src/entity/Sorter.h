@@ -5,6 +5,7 @@
 #ifndef LAB_12_SORTER_H
 #define LAB_12_SORTER_H
 #include "Tor.h"
+#include "cone.h"
 #include <list>
 #include <string>
 #include "spdlog/spdlog.h"
